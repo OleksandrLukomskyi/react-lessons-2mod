@@ -1,13 +1,13 @@
-.colorPicker {
+/* .colorPicker {
    width: 400px;
    padding: 10px;
    border: 1px solid black;
- }
+ } */
  
- .colorPickerTitle {
+ /* .colorPickerTitle {
    line-height: 1.3;
  }
- 
+  */
  .colorPickerOption {
    display: inline-block;
    width: 40px;

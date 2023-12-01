@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TodoForm } from './TodoEditor.styled';
 
 class TodoEditor extends Component {
   state = {
@@ -13,17 +14,20 @@ class TodoEditor extends Component {
     this.props.onSubmit(this.state.message);
     this.setState({ message: '' });
   };
+
   render() {
     return (
-      <form className="TodoEditor" onSubmit={this.handleSubmit}>
-        <textarea
-          value={this.state.message}
-          onChange={this.handleChange}
-        ></textarea>
-        <button type="submit" className="TodoEditor___button">
-          Добавить
-        </button>
-      </form>
+      <TodoForm>
+        <form onSubmit={this.handleSubmit}>
+          <textarea
+            value={this.state.message}
+            onChange={this.handleChange}
+          ></textarea>
+          <button type="submit" className="TodoEditor___button">
+            Добавить
+          </button>
+        </form>
+      </TodoForm>
     );
   }
 }

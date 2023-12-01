@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './ColorPicker.css';
+import { Container, Title } from './ColorPicker.styled';
+// import React from 'react';
 
 class ColorPicker extends Component {
   state = {
@@ -23,8 +25,8 @@ class ColorPicker extends Component {
     const { label } = options[activeOptionIdx];
 
     return (
-      <div className="colorPicker">
-        <h2 className="colorPickerTitle">Color Picker</h2>
+      <Container>
+        <Title>Color Picker</Title>
         <p>Вибраний колір: {label}</p>
         <div>
           {this.props.options.map(({ label, color }, index) => (
@@ -36,7 +38,7 @@ class ColorPicker extends Component {
             ></button>
           ))}
         </div>
-      </div>
+      </Container>
     );
   }
 }
