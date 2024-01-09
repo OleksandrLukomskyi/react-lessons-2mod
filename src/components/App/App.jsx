@@ -13,7 +13,7 @@ import TodoEditor from '../TodoEditor/TodoEditor';
 import Modal from 'components/Modal';
 import Clock from 'components/Clock';
 import Tabs from 'components/Tabs';
-import initialTodos from '../../todos.json';
+// import initialTodos from '../../todos.json';
 
 import tabs from '../../tabs.json';
 import Filter from '../Filter/Filter';
@@ -127,8 +127,8 @@ this.setState({todos: parsedTodos});
     return (
       
       <>
-        {/* <ColorPicker options={colorPickerOptions} /> */}
-        {/* <Dropdown /> */}
+        <ColorPicker options={colorPickerOptions} />
+        <Dropdown />
         
 
        
@@ -146,26 +146,26 @@ this.setState({todos: parsedTodos});
           onDeleteTodo={this.deleteTodo}
           onToggleCompleted={this.toggleCompleted}
         />
-        {/* <Counter initialValue={10} /> */}
-        {/* <FormNew onSubmit={this.formSubmitHandler}/> */}
+        <Counter initialValue={10} />
+        <FormNew onSubmit={this.formSubmitHandler}/>
        
-        {/* <input type="text" value={this.state.inputValue} onChange={this.handleInputChange} /> */}
-              {/* {showModal && <Clock/>}
-              <button type='button' onClick={this.toggleModal}>
-                Відкрити таймер/Скрити таймер 
-                </button> */}
-                {/* <Tabs items={tabs} /> */}
+        <input type="text" value={this.state.inputValue} onChange={this.handleInputChange} />
+              {showModal && <Clock/>}
+               <button type='button' onClick={this.toggleModal}>
+                Відкрити таймер/Скрити таймер  
+              </button>
+                <Tabs items={tabs} />
                
                
                
-               {/* <button type='button' onClick={this.toggleModal}>
+               <button type='button' onClick={this.toggleModal}>
                 Відкрити модалку
-                </button>  */}
+                </button> 
                  {showModal && (
                 <Modal onClose={this.toggleModal}> <TodoEditor onSubmit={this.addTodo} />
-                  {/* <h1>Привіт це контент модалки як children </h1>
+                  <h1>Привіт це контент модалки як children </h1>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium vel hic quidem nobis suscipit, laborum sint architecto culpa ab sunt repellat et quasi error dicta doloribus nostrum provident assumenda deserunt.</p>
-                 <button type='button' onClick={this.toggleModal}>Закрити</button> */}
+                 <button type='button' onClick={this.toggleModal}>Закрити</button>
                   </Modal>)}
                   
         

@@ -1,46 +1,40 @@
-import React, { Component } from 'react';
+import { useState } from 'react';
 import './ColorPicker.css';
 import { Container, Title } from './ColorPicker.styled';
-// import React from 'react';
 
-class ColorPicker extends Component {
-  state = {
-    activeOptionIdx: 3,
+const ColorPicker = ({ options }) => {
+  const [activeOptionIndex, setActiveOptionIndex] = useState(3);
+
+  const setActiveIdx = index => {
+    setActiveOptionIndex(index);
   };
 
-  setActiveIdx = index => {
-    this.setState({ activeOptionIdx: index });
-  };
-
-  makeOptionClassName = index => {
+  const makeOptionClassName = index => {
     const optionClasses = ['colorPickerOption'];
-    if (index === this.state.activeOptionIdx) {
+    if (index === activeOptionIndex) {
       optionClasses.push('colorPickerOption--active');
     }
     return optionClasses.join(' ');
   };
-  render() {
-    const { activeOptionIdx } = this.state;
-    const { options } = this.props;
-    const { label } = options[activeOptionIdx];
 
-    return (
-      <Container>
-        <Title>Color Picker</Title>
-        <p>Вибраний колір: {label}</p>
-        <div>
-          {this.props.options.map(({ label, color }, index) => (
-            <button
-              key={label}
-              className={this.makeOptionClassName(index)}
-              style={{ backgroundColor: color }}
-              onClick={() => this.setActiveIdx(index)}
-            ></button>
-          ))}
-        </div>
-      </Container>
-    );
-  }
-}
+  const { label } = options[activeOptionIndex];
+
+  return (
+    <Container>
+      <Title>Color Picker</Title>
+      <p>Вибраний колір: {label}</p>
+      <div>
+        {options.map(({ label, color }, index) => (
+          <button
+            key={label}
+            className={makeOptionClassName(index)}
+            style={{ backgroundColor: color }}
+            onClick={() => setActiveIdx(index)}
+          ></button>
+        ))}
+      </div>
+    </Container>
+  );
+};
 
 export default ColorPicker;
